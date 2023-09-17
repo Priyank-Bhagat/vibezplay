@@ -6,6 +6,7 @@ class TextInput extends StatelessWidget {
   final IconData myIcon;
   final String mylableText;
   final bool obsercureTxtValue;
+  final TextInputType keyboardType;
 
   const TextInput({
     Key? key,
@@ -13,6 +14,7 @@ class TextInput extends StatelessWidget {
     required this.myIcon,
     required this.mylableText,
     this.obsercureTxtValue = false,
+    this.keyboardType = TextInputType.text,
   }) : super(key: key);
 
   @override
@@ -20,6 +22,7 @@ class TextInput extends StatelessWidget {
     return TextField(
       controller: myController,
       obscureText: obsercureTxtValue,
+      keyboardType: keyboardType,
       decoration: InputDecoration(
         icon: Icon(myIcon),
         labelText: mylableText,
