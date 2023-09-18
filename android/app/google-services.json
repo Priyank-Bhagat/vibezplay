@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1063903102573",
+    "project_id": "vibezplay-ff06f",
+    "storage_bucket": "vibezplay-ff06f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1063903102573:android:8c24f771e11ce353cc2164",
+        "android_client_info": {
+          "package_name": "com.xyz.vibezplay"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDOHJmWQWiOxwGqYJYx4qA814hIdc81Ic"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
