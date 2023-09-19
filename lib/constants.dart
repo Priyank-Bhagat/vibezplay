@@ -13,3 +13,12 @@ getRandomColor() => [
 const kBackgroundColor = Colors.black;
 var kButtonColor = Colors.red[400];
 const kBorderColor = Colors.grey;
+
+
+const pageIndex=[
+  'Home',
+  'Search',
+  'Add',
+  'Message',
+  'Profile'
+];
