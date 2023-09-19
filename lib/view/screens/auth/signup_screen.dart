@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:vibezplay/constants.dart';
 import 'package:vibezplay/controller/auth_controller.dart';
+import 'package:vibezplay/view/screens/auth/login_screen.dart';
 
 import '../../widgets/glitch_effect.dart';
 import '../../widgets/text_input.dart';
@@ -118,24 +121,47 @@ class SignupScreen extends StatelessWidget {
                   height: 30,
                 ),
                 Container(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 50, vertical: 10),
-                    child: ElevatedButton(
-                      onPressed: () {
-                        AuthController.instance.signUp(
-                            _setUsernameController.text,
-                            _emailController.text,
-                            _confirmPassController.text,
-                            AuthController.instance.proImg);
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 50, vertical: 10),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      AuthController.instance.signUp(
+                          _setUsernameController.text,
+                          _emailController.text,
+                          _confirmPassController.text,
+                          AuthController.instance.proImg);
+                    },
+                    style: ButtonStyle(
+                      backgroundColor:
+                          MaterialStateProperty.all(Colors.grey.shade500),
+                    ),
+                    child: const Text(
+                      'Sign Up',
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+
+                  children: [
+                    const Text(
+                      "Already have an account?",
+                      style: TextStyle(fontSize: 15),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Get.offAll(() => LoginScreen());
                       },
-                      style: ButtonStyle(
-                        backgroundColor:
-                            MaterialStateProperty.all(Colors.grey.shade500),
+                      child:  Text(
+                        " SignIn",
+                        style: TextStyle(fontSize: 17, color: Colors.grey.shade500),
                       ),
-                      child: const Text(
-                        'Sign Up',
-                      ),
-                    )),
+                    ),
+                  ],
+                ),
               ],
             ),
           ),

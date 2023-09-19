@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:vibezplay/controller/auth_controller.dart';
+import 'package:vibezplay/view/screens/auth/signup_screen.dart';
 import 'package:vibezplay/view/widgets/glitch_effect.dart';
 import 'package:vibezplay/view/widgets/text_input.dart';
 
@@ -24,7 +27,8 @@ class LoginScreen extends StatelessWidget {
                   child: const Text(
                     'VibezPlay',
                     style: TextStyle(fontWeight: FontWeight.w900, fontSize: 45),
-                  ),),
+                  ),
+                ),
                 const SizedBox(
                   height: 70,
                 ),
@@ -59,15 +63,41 @@ class LoginScreen extends StatelessWidget {
                   height: 30,
                 ),
                 Container(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 50, vertical: 10),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 50, vertical: 10),
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        AuthController.instance
+                            .login(_emailController.text, _passController.text);
+                      },
                       style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(Colors.grey.shade500),
+                        backgroundColor:
+                            MaterialStateProperty.all(Colors.grey.shade500),
                       ),
-                      child: const Text('Login',),
+                      child: const Text(
+                        'Login',
+                      ),
                     )),
+                const SizedBox(
+                  height: 30,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Don't have an account?",
+                      style: TextStyle(fontSize: 15),
+                    ),
+                    GestureDetector(
+                        onTap: () {
+                          Get.offAll(() => SignupScreen());
+                        },
+                        child: Text(
+                          " SignUp",
+                          style: TextStyle(fontSize: 17,color: Colors.grey.shade500),
+                        )),
+                  ],
+                ),
               ],
             ),
           ),
