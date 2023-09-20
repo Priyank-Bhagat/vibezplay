@@ -13,6 +13,8 @@ import 'package:vibezplay/view/screens/home_screen.dart';
 class AuthController extends GetxController {
   static AuthController instance = Get.find();
 
+
+ // this method is used to keep user loggedin
   late Rx<User?> _user;
 
   @override

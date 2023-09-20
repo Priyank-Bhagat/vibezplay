@@ -21,10 +21,10 @@ class _HomeScreenState extends State<HomeScreen> {
           currentIndex: pageIdx,
           onTap: (index) {
             setState(() {
-              pageIdx= index;
+              pageIdx = index;
             });
           },
-          items: [
+          items: const [
             BottomNavigationBarItem(
                 icon: Icon(
                   Icons.home,
@@ -51,7 +51,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 label: 'Profile'),
           ]),
-      body: Center(child: Text(pageIndex[pageIdx])),
+      body: Center(child: pageIndex[pageIdx]),
     );
   }
 }
