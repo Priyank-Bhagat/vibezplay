@@ -1,6 +1,9 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:vibezplay/view/screens/addvideo/add_caption_screen.dart';
 
 class AddVideoScreen extends StatelessWidget {
   const AddVideoScreen({Key? key}) : super(key: key);
@@ -8,7 +11,8 @@ class AddVideoScreen extends StatelessWidget {
   videoPicker(ImageSource src) async {
     final video = await ImagePicker().pickVideo(source: src);
     if (video != null) {
-      Get.snackbar("Video Selected", video.path);
+      Get.to(
+          AddCaptionScreen(videoFile: File(video.path), videoPath: video.path));
     } else {
       Get.snackbar("Error Occurred",
           "Error Occurred while Selecting video. Please try again");

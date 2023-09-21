@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:vibezplay/view/screens/add_video_screen.dart';
+import 'package:vibezplay/view/screens/addvideo/add_video_screen.dart';
 
 //Constant for Glitch_Effect
 getRandomColor() => [
