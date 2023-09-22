@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -8,12 +10,20 @@ import 'package:vibezplay/view/screens/auth/login_screen.dart';
 import '../../widgets/glitch_effect.dart';
 import '../../widgets/text_input.dart';
 
-class SignupScreen extends StatelessWidget {
+class SignupScreen extends StatefulWidget {
   SignupScreen({Key? key}) : super(key: key);
 
+  @override
+  State<SignupScreen> createState() => _SignupScreenState();
+}
+
+class _SignupScreenState extends State<SignupScreen> {
   final TextEditingController _emailController = TextEditingController();
+
   final TextEditingController _setPassController = TextEditingController();
+
   final TextEditingController _confirmPassController = TextEditingController();
+
   final TextEditingController _setUsernameController = TextEditingController();
 
   @override
@@ -49,10 +59,13 @@ class SignupScreen extends StatelessWidget {
                   },
                   child: Stack(
                     children: [
-                      const CircleAvatar(
+                      CircleAvatar(
                         backgroundColor: Colors.red,
-                        backgroundImage: NetworkImage(
-                            'https://i.pinimg.com/736x/83/bc/8b/83bc8b88cf6bc4b4e04d153a418cde62.jpg'),
+                        backgroundImage: AuthController.instance.proImg != null
+                            ? FileImage(AuthController.instance.proImg!)
+                            : NetworkImage(
+                                    'https://i.pinimg.com/736x/83/bc/8b/83bc8b88cf6bc4b4e04d153a418cde62.jpg')
+                                as ImageProvider,
                         radius: 55,
                       ),
                       Positioned(
@@ -145,7 +158,6 @@ class SignupScreen extends StatelessWidget {
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-
                   children: [
                     const Text(
                       "Already have an account?",
@@ -155,9 +167,10 @@ class SignupScreen extends StatelessWidget {
                       onTap: () {
                         Get.offAll(() => LoginScreen());
                       },
-                      child:  Text(
+                      child: Text(
                         " SignIn",
-                        style: TextStyle(fontSize: 17, color: Colors.grey.shade500),
+                        style: TextStyle(
+                            fontSize: 17, color: Colors.grey.shade500),
                       ),
                     ),
                   ],

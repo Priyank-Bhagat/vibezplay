@@ -13,8 +13,7 @@ import 'package:vibezplay/view/screens/home_screen.dart';
 class AuthController extends GetxController {
   static AuthController instance = Get.find();
 
-
- // this method is used to keep user loggedin
+  // this method is used to keep user loggedin
   late Rx<User?> _user;
 
   @override
@@ -34,13 +33,11 @@ class AuthController extends GetxController {
 
   // this method is used to pick image from device gallery
   File? proImg;
-  pickImage() async {
+  Future<void> pickImage() async {
     final image = await ImagePicker().pickImage(source: ImageSource.gallery);
-    if (image == null) {
-      return;
+    if (image != null) {
+      proImg = File(image.path);
     }
-    final img = File(image.path);
-    proImg = img;
   }
 
   // this method is used to uploadProfile pic to FireStorage
