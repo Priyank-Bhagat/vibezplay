@@ -1,4 +1,6 @@
 import 'dart:io';
+import 'package:get/get.dart';
+import 'package:vibezplay/controller/upload_video_controller.dart';
 import 'package:vibezplay/view/widgets/text_input.dart';
 import 'package:video_player/video_player.dart';
 import 'package:flutter/material.dart';
@@ -19,6 +21,7 @@ class _AddCaptionScreenState extends State<AddCaptionScreen> {
 
   TextEditingController _songNameController = TextEditingController();
   TextEditingController _captionController = TextEditingController();
+  UploadVideoController uploadVideoController = Get.put(UploadVideoController());
 
   @override
   void initState() {
@@ -70,6 +73,8 @@ class _AddCaptionScreenState extends State<AddCaptionScreen> {
                   MaterialStateProperty.all(Colors.grey.shade500),
                 ),
                 onPressed: () {
+
+                  uploadVideoController.uploadVideo(_songNameController.text, _captionController.text, widget.videoPath);
                 },
                 child: const Text('Upload'),
               ),
