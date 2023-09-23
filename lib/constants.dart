@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:vibezplay/view/screens/addvideo/add_video_screen.dart';
+import 'package:vibezplay/view/screens/displayvideo/display_video_home_screen.dart';
 
 //Constant for Glitch_Effect
 getRandomColor() => [
@@ -17,7 +18,7 @@ const kBorderColor = Colors.grey;
 
 
 const pageIndex=[
-  Text( 'Home'),
+  DisplayVideoHomeScreen(),
   Text('Search'),
   AddVideoScreen(),
   Text('Message'),
