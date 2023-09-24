@@ -47,7 +47,7 @@ class UploadVideoController extends GetxController {
   Future<String> _uploadVideoToStorage(String videoId, String videoPath) async {
     Reference reference =
         FirebaseStorage.instance.ref().child("videos").child(videoId);
-    UploadTask uploadTask = reference.putFile(await _compressVideo(videoPath));
+    UploadTask uploadTask = reference.putFile( await _compressVideo(videoPath));
     TaskSnapshot snapshot = await uploadTask;
     String downloadUrl = await snapshot.ref.getDownloadURL();
     return downloadUrl;

@@ -106,7 +106,7 @@ class AddVideoScreen extends StatelessWidget {
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
               RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30),
-                  side: BorderSide(color: Colors.white))),
+                  side: const BorderSide(color: Colors.white))),
         ),
         child: const Text(
           'Add Video',

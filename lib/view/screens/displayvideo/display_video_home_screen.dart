@@ -57,17 +57,20 @@ class DisplayVideoHomeScreen extends StatelessWidget {
                 Positioned(
                   right: 0,
                   child: Container(
-                    height: MediaQuery.of(context).size.height - 250,
-                    margin: EdgeInsets.only(
-                        top: MediaQuery.of(context).size.height / 3, right: 20),
+                    height: MediaQuery.of(context).size.height - 200,
+                    margin: const EdgeInsets.only(
+                      right:
+                          20, /*top: MediaQuery.of(context).size.height / 2,*/
+                    ),
                     child: Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         ProfileButton(profilePicUrl: data.profilePic),
                         SizedBox(
                           height: Get.height * 0.027,
                         ),
                         InkWell(
-                          onTap: (){
+                          onTap: () {
                             videoPlayController.likedVideo(data.videoID);
                           },
                           child: Column(
@@ -75,7 +78,7 @@ class DisplayVideoHomeScreen extends StatelessWidget {
                               const Icon(
                                 Icons.favorite_rounded,
                                 size: 39,
-                                color: Colors.red,
+                                color: Colors.pinkAccent,
                               ),
                               Text(
                                 data.likes.length.toString(),
