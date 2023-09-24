@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
         primaryColor: kBackgroundColor,
         scaffoldBackgroundColor: kBackgroundColor,
       ),
-      home: SignupScreen(),
+      home: const SignupScreen(),
     );
   }
 }

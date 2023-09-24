@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ProfileButton extends StatelessWidget {
@@ -12,25 +11,24 @@ class ProfileButton extends StatelessWidget {
       child: Stack(
         children: [
           Positioned(
-              left: 5,
               child: Container(
-                width: 60,
-                height: 60,
-                padding: const EdgeInsets.all(1),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(35),
-                ),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(35),
-                  child: const Image(
-                    // image: NetworkImage(profilePhotoUrl),
-                    image: NetworkImage(
-                        "https://e1.pxfuel.com/desktop-wallpaper/69/531/desktop-wallpaper-cute-for-phone-unique-android-phone-unique-dp-thumbnail.jpg"),
-                    fit: BoxFit.cover,
-                  ),
-                ),
-              ))
+            width: 70,
+            height: 70,
+            padding: const EdgeInsets.all(1),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(20),
+              child: const Image(
+                // image: NetworkImage(profilePhotoUrl),
+                image: NetworkImage(
+                    "https://e1.pxfuel.com/desktop-wallpaper/69/531/desktop-wallpaper-cute-for-phone-unique-android-phone-unique-dp-thumbnail.jpg"),
+                fit: BoxFit.cover,
+              ),
+            ),
+          ))
         ],
       ),
     );

@@ -21,59 +21,96 @@ class AddVideoScreen extends StatelessWidget {
 
   showDialogBoxOpt() {
     return Get.defaultDialog(
-        title: "Select Video From",
-        content: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Container(
-              width: 100,
-              child: ElevatedButton(
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.black),
-                ),
-                onPressed: () {
-                  videoPicker(ImageSource.gallery);
-                },
-                child: const Text('Gallery'),
+      title: "Select Video From",
+      titleStyle: const TextStyle(
+        fontSize: 24,
+      ),
+      titlePadding: EdgeInsets.only(top: Get.height * 0.03),
+      content: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Container(
+            margin: EdgeInsets.only(
+                bottom: Get.height * 0.015, top: Get.height * 0.03),
+            decoration: BoxDecoration(
+              border: Border.all(color: Colors.white),
+            ),
+            width: Get.width * 0.4,
+            height: Get.height * 0.05,
+            child: ElevatedButton(
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(Colors.black),
+              ),
+              onPressed: () {
+                videoPicker(ImageSource.gallery);
+              },
+              child: const Text(
+                'Gallery',
+                style: TextStyle(fontSize: 16),
               ),
             ),
-            Container(
-              width: 100,
-              child: ElevatedButton(
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.black),
-                ),
-                onPressed: () {
-                  videoPicker(ImageSource.camera);
-                },
-                child: const Text('Camera'),
+          ),
+          Container(
+            margin: EdgeInsets.only(bottom: Get.height * 0.015),
+            decoration: BoxDecoration(border: Border.all(color: Colors.white)),
+            width: Get.width * 0.4,
+            height: Get.height * 0.05,
+            child: ElevatedButton(
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(Colors.black),
+              ),
+              onPressed: () {
+                videoPicker(ImageSource.camera);
+              },
+              child: const Text(
+                'Camera',
+                style: TextStyle(fontSize: 16),
               ),
             ),
-            Container(
-              width: 100,
-              child: ElevatedButton(
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.black),
-                ),
-                onPressed: () {
-                  Get.back();
-                },
-                child: const Text('Cancel'),
+          ),
+          Container(
+            margin: EdgeInsets.only(bottom: Get.height * 0.015),
+            decoration: BoxDecoration(border: Border.all(color: Colors.white)),
+            width: Get.width * 0.4,
+            height: Get.height * 0.05,
+            child: ElevatedButton(
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(Colors.black),
+              ),
+              onPressed: () {
+                Get.back();
+              },
+              child: const Text(
+                'Cancel',
+                style: TextStyle(fontSize: 16),
               ),
             ),
-          ],
-        ));
+          ),
+        ],
+      ),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: GestureDetector(
-          onTap: () {
-            showDialogBoxOpt();
-          },
-          child: Text('Add Video'),
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 10),
+      height: Get.height * 0.08,
+      width: Get.width * 0.6,
+      child: ElevatedButton(
+        onPressed: () {
+          showDialogBoxOpt();
+        },
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all(Colors.black12),
+          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+              RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30),
+                  side: BorderSide(color: Colors.white))),
+        ),
+        child: const Text(
+          'Add Video',
+          style: TextStyle(fontSize: 18),
         ),
       ),
     );

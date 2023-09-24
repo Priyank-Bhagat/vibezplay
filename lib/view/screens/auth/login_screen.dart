@@ -5,8 +5,6 @@ import 'package:vibezplay/view/screens/auth/signup_screen.dart';
 import 'package:vibezplay/view/widgets/glitch_effect.dart';
 import 'package:vibezplay/view/widgets/text_input.dart';
 
-import '../../../constants.dart';
-
 class LoginScreen extends StatelessWidget {
   LoginScreen({Key? key}) : super(key: key);
 
@@ -29,15 +27,15 @@ class LoginScreen extends StatelessWidget {
                     style: TextStyle(fontWeight: FontWeight.w900, fontSize: 45),
                   ),
                 ),
-                const SizedBox(
-                  height: 70,
+                SizedBox(
+                  height: Get.height * 0.07,
                 ),
                 const Text(
                   'Login to Account',
                   style: TextStyle(fontWeight: FontWeight.w700, fontSize: 20),
                 ),
-                const SizedBox(
-                  height: 35,
+                SizedBox(
+                  height: Get.height * 0.05,
                 ),
                 Container(
                   margin: const EdgeInsets.symmetric(horizontal: 20),
@@ -47,8 +45,8 @@ class LoginScreen extends StatelessWidget {
                       keyboardType: TextInputType.emailAddress,
                       mylableText: "Email"),
                 ),
-                const SizedBox(
-                  height: 20,
+                SizedBox(
+                  height: Get.height * 0.02,
                 ),
                 Container(
                   margin: const EdgeInsets.symmetric(horizontal: 20),
@@ -59,10 +57,12 @@ class LoginScreen extends StatelessWidget {
                     obsercureTxtValue: true,
                   ),
                 ),
-                const SizedBox(
-                  height: 30,
+                SizedBox(
+                  height: Get.height * 0.045,
                 ),
                 Container(
+                    height: 73,//Get.height * 0.08,
+                    width: 260,//Get.width * 0.6,
                     padding: const EdgeInsets.symmetric(
                         horizontal: 50, vertical: 10),
                     child: ElevatedButton(
@@ -76,26 +76,31 @@ class LoginScreen extends StatelessWidget {
                       ),
                       child: const Text(
                         'Login',
+                        style: TextStyle(fontSize: 18),
                       ),
                     )),
-                const SizedBox(
-                  height: 30,
+                SizedBox(
+                  height: Get.height * 0.04,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
+                    const Text(
                       "Don't have an account?",
-                      style: TextStyle(fontSize: 15),
+                      style: TextStyle(fontSize: 17),
                     ),
                     GestureDetector(
                         onTap: () {
-                          Get.offAll(() => SignupScreen());
+                          Get.offAll(() => const SignupScreen());
                         },
                         child: Text(
                           " SignUp",
-                          style: TextStyle(fontSize: 17,color: Colors.grey.shade500),
-                        )),
+                          style: TextStyle(
+                              fontSize: 19, color: Colors.grey.shade500),
+                        ),),
+                    SizedBox(
+                      height: Get.height * 0.035,
+                    ),
                   ],
                 ),
               ],

@@ -11,16 +11,16 @@ class CustomPlusButton extends StatelessWidget {
         height: 27.0,
         child: Stack(children: [
           Container(
-              margin: EdgeInsets.only(left: 10.0),
-              width: 38,
+              margin: const EdgeInsets.only(left: 10.0),
+              width: 60,
               decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 250, 45, 108),
+                  color: const Color.fromARGB(255, 250, 45, 108),
                   borderRadius: BorderRadius.circular(7.0))),
           Container(
-              margin: EdgeInsets.only(right: 10.0),
-              width: 38,
+              margin: const EdgeInsets.only(right: 10.0),
+              width: 60,
               decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 32, 211, 234),
+                  color: const Color.fromARGB(255, 32, 211, 234),
                   borderRadius: BorderRadius.circular(7.0))),
           Center(
               child: Container(
@@ -28,9 +28,9 @@ class CustomPlusButton extends StatelessWidget {
             width: 38,
             decoration: BoxDecoration(
                 color: Colors.white, borderRadius: BorderRadius.circular(7.0)),
-            child: Icon(
+            child: const Icon(
               Icons.add,
-              size: 20.0,
+              size: 22.0,
               color: Colors.black,
             ),
           )),

@@ -19,9 +19,10 @@ class AddCaptionScreen extends StatefulWidget {
 class _AddCaptionScreenState extends State<AddCaptionScreen> {
   late VideoPlayerController videoPlayerController;
 
-  TextEditingController _songNameController = TextEditingController();
-  TextEditingController _captionController = TextEditingController();
-  UploadVideoController uploadVideoController = Get.put(UploadVideoController());
+  final TextEditingController _songNameController = TextEditingController();
+  final TextEditingController _captionController = TextEditingController();
+  UploadVideoController uploadVideoController =
+      Get.put(UploadVideoController());
 
   @override
   void initState() {
@@ -54,7 +55,8 @@ class _AddCaptionScreenState extends State<AddCaptionScreen> {
               child: VideoPlayer(videoPlayerController),
             ),
             Container(
-              margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              margin: const EdgeInsets.only(
+                  left: 20, right: 20, bottom: 10, top: 25),
               width: device.width,
               child: Column(
                 children: [
@@ -63,29 +65,42 @@ class _AddCaptionScreenState extends State<AddCaptionScreen> {
                       myIcon: Icons.music_note_rounded,
                       mylableText: "Song Name"),
                   SizedBox(
-                    height: 10,
+                    height: Get.height * 0.02,
                   ),
                   TextInput(
                       myController: _captionController,
                       myIcon: Icons.closed_caption,
                       mylableText: "Caption"),
                   SizedBox(
-                    height: 20,
+                    height: Get.height * 0.04,
                   ),
-            Container(
-              width: 100,
-              child: ElevatedButton(
-                style: ButtonStyle(
-                  backgroundColor:
-                  MaterialStateProperty.all(Colors.grey.shade500),
-                ),
-                onPressed: () {
-
-                  uploadVideoController.uploadVideo(_songNameController.text, _captionController.text, widget.videoPath);
-                },
-                child: const Text('Upload'),
-              ),
-            ),
+                  SizedBox(
+                    height: Get.height * 0.06,
+                    width: Get.width * 0.4,
+                    child: ElevatedButton(
+                      style: ButtonStyle(
+                          backgroundColor:
+                              MaterialStateProperty.all(Colors.red.shade500),
+                          shape:
+                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                                  RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10),
+                                      side: const BorderSide(
+                                          color: Colors.white)))),
+                      onPressed: () {
+                        uploadVideoController.uploadVideo(
+                            _songNameController.text,
+                            _captionController.text,
+                            widget.videoPath);
+                      },
+                      child: const Text(
+                        'Upload',
+                        style: TextStyle(
+                          fontSize: 18,
+                        ),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             )

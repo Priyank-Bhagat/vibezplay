@@ -28,26 +28,26 @@ class _HomeScreenState extends State<HomeScreen> {
             BottomNavigationBarItem(
                 icon: Icon(
                   Icons.home,
-                  size: 25,
+                  size: 27,
                 ),
                 label: 'Home'),
             BottomNavigationBarItem(
                 icon: Icon(
                   Icons.search,
-                  size: 25,
+                  size: 27,
                 ),
                 label: 'Search'),
             BottomNavigationBarItem(icon: CustomPlusButton(), label: ''),
             BottomNavigationBarItem(
                 icon: Icon(
                   Icons.message,
-                  size: 25,
+                  size: 27,
                 ),
                 label: 'Message'),
             BottomNavigationBarItem(
                 icon: Icon(
                   Icons.person,
-                  size: 25,
+                  size: 27,
                 ),
                 label: 'Profile'),
           ]),

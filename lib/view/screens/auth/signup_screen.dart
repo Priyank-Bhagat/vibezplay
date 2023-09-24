@@ -1,8 +1,5 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:vibezplay/constants.dart';
 import 'package:vibezplay/controller/auth_controller.dart';
 import 'package:vibezplay/view/screens/auth/login_screen.dart';
@@ -11,7 +8,7 @@ import '../../widgets/glitch_effect.dart';
 import '../../widgets/text_input.dart';
 
 class SignupScreen extends StatefulWidget {
-  SignupScreen({Key? key}) : super(key: key);
+  const SignupScreen({Key? key}) : super(key: key);
 
   @override
   State<SignupScreen> createState() => _SignupScreenState();
@@ -50,8 +47,8 @@ class _SignupScreenState extends State<SignupScreen> {
                   'Create Account',
                   style: TextStyle(fontWeight: FontWeight.w700, fontSize: 20),
                 ),
-                const SizedBox(
-                  height: 35,
+                SizedBox(
+                  height: Get.height * 0.05,
                 ),
                 GestureDetector(
                   onTap: () {
@@ -63,10 +60,10 @@ class _SignupScreenState extends State<SignupScreen> {
                         backgroundColor: Colors.red,
                         backgroundImage: AuthController.instance.proImg != null
                             ? FileImage(AuthController.instance.proImg!)
-                            : NetworkImage(
+                            : const NetworkImage(
                                     'https://i.pinimg.com/736x/83/bc/8b/83bc8b88cf6bc4b4e04d153a418cde62.jpg')
                                 as ImageProvider,
-                        radius: 55,
+                        radius: Get.height * 0.08,
                       ),
                       Positioned(
                           bottom: 0,
@@ -78,14 +75,14 @@ class _SignupScreenState extends State<SignupScreen> {
                                   color: Colors.black38),
                               child: Icon(
                                 Icons.edit,
-                                size: 20,
+                                size: Get.height * 0.03,
                                 color: Colors.grey.shade400,
                               )))
                     ],
                   ),
                 ),
-                const SizedBox(
-                  height: 30,
+                SizedBox(
+                  height: Get.height * 0.05,
                 ),
                 Container(
                   margin: const EdgeInsets.symmetric(horizontal: 20),
@@ -95,8 +92,8 @@ class _SignupScreenState extends State<SignupScreen> {
                       keyboardType: TextInputType.emailAddress,
                       mylableText: "Email"),
                 ),
-                const SizedBox(
-                  height: 20,
+                SizedBox(
+                  height: Get.height * 0.025,
                 ),
                 Container(
                   margin: const EdgeInsets.symmetric(horizontal: 20),
@@ -107,8 +104,8 @@ class _SignupScreenState extends State<SignupScreen> {
                     obsercureTxtValue: true,
                   ),
                 ),
-                const SizedBox(
-                  height: 20,
+                SizedBox(
+                  height: Get.height * 0.025,
                 ),
                 Container(
                   margin: const EdgeInsets.symmetric(horizontal: 20),
@@ -119,8 +116,8 @@ class _SignupScreenState extends State<SignupScreen> {
                     obsercureTxtValue: true,
                   ),
                 ),
-                const SizedBox(
-                  height: 20,
+                SizedBox(
+                  height: Get.height * 0.025,
                 ),
                 Container(
                   margin: const EdgeInsets.symmetric(horizontal: 20),
@@ -130,12 +127,14 @@ class _SignupScreenState extends State<SignupScreen> {
                     mylableText: "Set Username",
                   ),
                 ),
-                const SizedBox(
-                  height: 30,
+                SizedBox(
+                  height: Get.height * 0.05,
                 ),
                 Container(
                   padding:
                       const EdgeInsets.symmetric(horizontal: 50, vertical: 10),
+                  height: 73,// Get.height * 0.08,
+                  width: 260,//Get.width * 0.6,
                   child: ElevatedButton(
                     onPressed: () {
                       AuthController.instance.signUp(
@@ -150,18 +149,19 @@ class _SignupScreenState extends State<SignupScreen> {
                     ),
                     child: const Text(
                       'Sign Up',
+                      style: TextStyle(fontSize: 18),
                     ),
                   ),
                 ),
-                const SizedBox(
-                  height: 30,
+                SizedBox(
+                  height: Get.height * 0.035,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const Text(
                       "Already have an account?",
-                      style: TextStyle(fontSize: 15),
+                      style: TextStyle(fontSize: 17),
                     ),
                     GestureDetector(
                       onTap: () {
@@ -170,8 +170,11 @@ class _SignupScreenState extends State<SignupScreen> {
                       child: Text(
                         " SignIn",
                         style: TextStyle(
-                            fontSize: 17, color: Colors.grey.shade500),
+                            fontSize: 19, color: Colors.grey.shade500),
                       ),
+                    ),
+                    SizedBox(
+                      height: Get.height * 0.05,
                     ),
                   ],
                 ),
