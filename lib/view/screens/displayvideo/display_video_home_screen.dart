@@ -59,26 +59,31 @@ class DisplayVideoHomeScreen extends StatelessWidget {
                   child: Container(
                     height: MediaQuery.of(context).size.height - 250,
                     margin: EdgeInsets.only(
-                        top: MediaQuery.of(context).size.height / 2, right: 20),
+                        top: MediaQuery.of(context).size.height / 3, right: 20),
                     child: Column(
                       children: [
                         ProfileButton(profilePicUrl: data.profilePic),
                         SizedBox(
                           height: Get.height * 0.027,
                         ),
-                        Column(
-                          children: [
-                            const Icon(
-                              Icons.favorite_rounded,
-                              size: 39,
-                              color: Colors.red,
-                            ),
-                            Text(
-                              data.likes.length.toString(),
-                              style: const TextStyle(
-                                  fontSize: 15, color: Colors.white),
-                            )
-                          ],
+                        InkWell(
+                          onTap: (){
+                            videoPlayController.likedVideo(data.videoID);
+                          },
+                          child: Column(
+                            children: [
+                              const Icon(
+                                Icons.favorite_rounded,
+                                size: 39,
+                                color: Colors.red,
+                              ),
+                              Text(
+                                data.likes.length.toString(),
+                                style: const TextStyle(
+                                    fontSize: 15, color: Colors.white),
+                              )
+                            ],
+                          ),
                         ),
                         SizedBox(
                           height: Get.height * 0.027,

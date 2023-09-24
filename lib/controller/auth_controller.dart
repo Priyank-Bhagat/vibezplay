@@ -16,6 +16,8 @@ class AuthController extends GetxController {
   // this method is used to keep user loggedin
   late Rx<User?> _user;
 
+  User get user => _user.value!; // this line of code will send this data to VideoPlayerController for like functionality
+
   @override
   void onReady() {
     // TODO: implement onReady
