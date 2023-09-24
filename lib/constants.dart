@@ -17,10 +17,10 @@ var kButtonColor = Colors.red[400];
 const kBorderColor = Colors.grey;
 
 
-const pageIndex=[
+var pageIndex=[
   DisplayVideoHomeScreen(),
-  Text('Search'),
-  AddVideoScreen(),
-  Text('Message'),
-  Text('Profile')
+  const Text('Search'),
+  const AddVideoScreen(),
+  const Text('Message'),
+  const Text('Profile')
 ];

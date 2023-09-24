@@ -6,14 +6,14 @@ class ProfileButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 70,
-      height: 70,
+      width: 60,
+      height: 60,
       child: Stack(
         children: [
           Positioned(
               child: Container(
-            width: 70,
-            height: 70,
+            width: 60,
+            height: 60,
             padding: const EdgeInsets.all(1),
             decoration: BoxDecoration(
               color: Colors.white,
@@ -21,10 +21,8 @@ class ProfileButton extends StatelessWidget {
             ),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(20),
-              child: const Image(
-                // image: NetworkImage(profilePhotoUrl),
-                image: NetworkImage(
-                    "https://e1.pxfuel.com/desktop-wallpaper/69/531/desktop-wallpaper-cute-for-phone-unique-android-phone-unique-dp-thumbnail.jpg"),
+              child:  Image(
+                 image: NetworkImage(profilePicUrl),
                 fit: BoxFit.cover,
               ),
             ),

@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
@@ -21,6 +20,7 @@ class _VibezplayPlayerState extends State<VibezplayPlayer> {
         VideoPlayerController.networkUrl(Uri.parse(widget.videoUrl))
           ..initialize().then((value) {});
     videoPlayerController.play();
+    videoPlayerController.setLooping(true);
   }
 
   @override
