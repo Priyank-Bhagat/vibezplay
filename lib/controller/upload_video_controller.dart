@@ -45,6 +45,7 @@ class UploadVideoController extends GetxController {
 
   // below function used to Compress and upload video to firestorage
   Future<String> _uploadVideoToStorage(String videoId, String videoPath) async {
+    print("VideoID  ------->   $videoId ,,   VideoPath -------> $videoPath");
     Reference reference =
         FirebaseStorage.instance.ref().child("videos").child(videoId);
     UploadTask uploadTask = reference.putFile( await _compressVideo(videoPath));
