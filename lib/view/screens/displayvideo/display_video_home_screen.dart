@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vibezplay/controller/video_play_controller.dart';
+import 'package:vibezplay/view/screens/comments/comments_screen.dart';
 import 'package:vibezplay/view/widgets/profile_button.dart';
 import 'package:vibezplay/view/widgets/vibezplay_player.dart';
 
@@ -108,19 +109,24 @@ class DisplayVideoHomeScreen extends StatelessWidget {
                         SizedBox(
                           height: Get.height * 0.027,
                         ),
-                        Column(
-                          children: [
-                            const Icon(
-                              Icons.comment,
-                              size: 35,
-                              color: Colors.white,
-                            ),
-                            Text(
-                              data.commentsCount.toString(),
-                              style: const TextStyle(
-                                  fontSize: 15, color: Colors.white),
-                            )
-                          ],
+                        GestureDetector(
+                          onTap: (){
+                            Get.to(const CommentsScreen());
+                          },
+                          child: Column(
+                            children: [
+                              const Icon(
+                                Icons.comment,
+                                size: 35,
+                                color: Colors.white,
+                              ),
+                              Text(
+                                data.commentsCount.toString(),
+                                style: const TextStyle(
+                                    fontSize: 15, color: Colors.white),
+                              )
+                            ],
+                          ),
                         ),
                       ],
                     ),
