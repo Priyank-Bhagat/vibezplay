@@ -1,6 +1,6 @@
 # vibezplay
 
-A new Flutter project.
+A new Flutter project about viebzplay.
 
 ## Getting Started
 
