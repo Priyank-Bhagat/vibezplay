@@ -15,6 +15,7 @@ class CommentsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    commentController.updatePostID(id);
     Size device = MediaQuery.of(context).size;
     return Scaffold(
       body: SingleChildScrollView(
