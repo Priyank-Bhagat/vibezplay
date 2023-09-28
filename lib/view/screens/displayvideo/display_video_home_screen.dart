@@ -111,7 +111,7 @@ class DisplayVideoHomeScreen extends StatelessWidget {
                         ),
                         GestureDetector(
                           onTap: (){
-                            Get.to(const CommentsScreen());
+                            Get.to( CommentsScreen(id: data.videoID,));
                           },
                           child: Column(
                             children: [
