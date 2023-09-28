@@ -97,6 +97,7 @@ class CommentsScreen extends StatelessWidget {
                   onPressed: () {
                     commentController
                         .postComment(_commentTextEditingController.text);
+                    _commentTextEditingController.clear();
                   },
                   child: const Text('Send'),
                 ),
