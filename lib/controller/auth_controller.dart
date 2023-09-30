@@ -16,7 +16,8 @@ class AuthController extends GetxController {
   // this method is used to keep user loggedin
   late Rx<User?> _user;
 
-  User get user => _user.value!; // this line of code will send this data to VideoPlayerController for like functionality
+  User get user => _user
+      .value!; // this line of code will send this data to VideoPlayerController for like functionality
 
   @override
   void onReady() {
@@ -28,7 +29,7 @@ class AuthController extends GetxController {
       if (user == null) {
         Get.offAll(() => LoginScreen());
       } else {
-        Get.offAll(() => HomeScreen());
+        Get.offAll(() => const HomeScreen());
       }
     });
   }
@@ -101,5 +102,10 @@ class AuthController extends GetxController {
     } catch (e) {
       rethrow;
     }
+  }
+
+  void signOut() {
+    FirebaseAuth.instance.signOut();
+    Get.offAll(LoginScreen());
   }
 }
