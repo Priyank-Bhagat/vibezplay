@@ -1,8 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:vibezplay/constants.dart';
 
 import '../../../controller/auth_controller.dart';
 import '../../../controller/profile_controller.dart';
@@ -34,26 +34,27 @@ class _ProfileScreenState extends State<ProfileScreen> {
       builder: (controller) {
         return Scaffold(
           appBar: AppBar(
+            backgroundColor: kBackgroundColor,
             title: Text('@${controller.user["name"]}'),
             centerTitle: true,
             actions: [
               IconButton(
                 onPressed: () {
-                  Get.snackbar("TikTok Clone Yt App", "Current Version 1.0");
+                  Get.snackbar("VibezPlay", "Current Version 1.0");
                 },
-                icon: Icon(Icons.info_outline_rounded),
+                icon: const Icon(Icons.info_outline_rounded),
               )
             ],
           ),
           body: controller.user.isEmpty
-              ? Center(
+              ? const Center(
                   child: CircularProgressIndicator(),
                 )
               : SingleChildScrollView(
                   child: SafeArea(
                     child: Column(
                       children: [
-                        SizedBox(
+                        const SizedBox(
                           height: 40,
                         ),
                         Row(
@@ -63,17 +64,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               child: CachedNetworkImage(
                                 imageUrl: controller.user['profilePic'],
                                 fit: BoxFit.contain,
-                                height: 100,
-                                width: 100,
+                                height: 150,
+                                width: 150,
                                 placeholder: (context, url) =>
-                                    CircularProgressIndicator(),
+                                    const CircularProgressIndicator(),
                                 errorWidget: (context, url, error) =>
-                                    Icon(Icons.error),
+                                    const Icon(Icons.error),
                               ),
                             )
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
                         Row(
@@ -85,20 +86,20 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               children: [
                                 Text(
                                   controller.user['followers'],
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       fontSize: 20,
                                       fontWeight: FontWeight.w700),
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   height: 10,
                                 ),
-                                Text("Followers",
+                                const Text("Followers",
                                     style: TextStyle(
                                         fontSize: 14,
                                         fontWeight: FontWeight.w400))
                               ],
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 25,
                             ),
                             Column(
@@ -107,20 +108,20 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               children: [
                                 Text(
                                   controller.user['following'],
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       fontSize: 20,
                                       fontWeight: FontWeight.w700),
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   height: 10,
                                 ),
-                                Text("Followings",
+                                const Text("Followings",
                                     style: TextStyle(
                                         fontSize: 14,
                                         fontWeight: FontWeight.w400))
                               ],
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 25,
                             ),
                             Column(
@@ -129,14 +130,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               children: [
                                 Text(
                                   controller.user['likes'],
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       fontSize: 20,
                                       fontWeight: FontWeight.w700),
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   height: 10,
                                 ),
-                                Text("Likes",
+                                const Text("Likes",
                                     style: TextStyle(
                                         fontSize: 14,
                                         fontWeight: FontWeight.w400))
@@ -144,7 +145,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             ),
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 35,
                         ),
                         InkWell(
@@ -172,22 +173,22 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                         : "Follow")),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
-                        Divider(
+                        const Divider(
                           indent: 30,
                           endIndent: 30,
                           thickness: 2,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 50,
                         ),
                         GridView.builder(
-                            physics: NeverScrollableScrollPhysics(),
+                            physics: const NeverScrollableScrollPhysics(),
                             shrinkWrap: true,
                             gridDelegate:
-                                SliverGridDelegateWithFixedCrossAxisCount(
+                                const SliverGridDelegateWithFixedCrossAxisCount(
                                     crossAxisCount: 2,
                                     childAspectRatio: 1,
                                     crossAxisSpacing: 5),
@@ -199,7 +200,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 fit: BoxFit.cover,
                                 imageUrl: thumbnail,
                                 errorWidget: (context, url, error) =>
-                                    Icon(Icons.error),
+                                    const Icon(Icons.error),
                               );
                             })
                       ],

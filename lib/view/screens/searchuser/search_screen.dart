@@ -4,6 +4,7 @@ import 'package:vibezplay/constants.dart';
 import 'package:vibezplay/controller/search_user_controller.dart';
 
 import '../../../model/user_model.dart';
+import '../profilepage/profile_screen.dart';
 
 class SearchScreen extends StatelessWidget {
   SearchScreen({Key? key}) : super(key: key);
@@ -17,26 +18,24 @@ class SearchScreen extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: kBackgroundColor,
           title: TextFormField(
-            decoration:  InputDecoration(
-              suffixIcon: GestureDetector(
-                  onTap: (){
-                    searchController.searchUser(searchQuery.text);
-                  },
-                  child: const Icon(Icons.person_search_rounded)),
+            decoration: InputDecoration(
+                suffixIcon: GestureDetector(
+                    onTap: () {
+                      searchController.searchUser(searchQuery.text);
+                    },
+                    child: const Icon(Icons.person_search_rounded)),
                 suffixIconColor: Colors.white,
                 fillColor: kBackgroundColor,
                 filled: true,
                 border: InputBorder.none,
                 focusedBorder: const UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.white)
-                ),
+                    borderSide: BorderSide(color: Colors.white)),
                 enabledBorder: const UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.white54)
-                ),
+                    borderSide: BorderSide(color: Colors.white54)),
                 errorBorder: InputBorder.none,
                 disabledBorder: InputBorder.none,
-                contentPadding:
-                    const EdgeInsets.only(left: 15, bottom: 11, top: 11, right: 15),
+                contentPadding: const EdgeInsets.only(
+                    left: 15, bottom: 11, top: 11, right: 15),
                 hintText: "Search Username"),
             controller: searchQuery,
             onFieldSubmitted: (value) {
@@ -54,7 +53,9 @@ class SearchScreen extends StatelessWidget {
                   UserModel user = searchController.searchedUsers[index];
 
                   return ListTile(
-                    onTap: () {},
+                    onTap: () {
+                      Get.to(ProfileScreen(uid: user.uid));
+                    },
                     leading: CircleAvatar(
                       backgroundImage: NetworkImage(user.profilePhoto),
                     ),
