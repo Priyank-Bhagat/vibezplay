@@ -53,6 +53,9 @@ class _SignupScreenState extends State<SignupScreen> {
                 GestureDetector(
                   onTap: () {
                     AuthController.instance.pickImage();
+                    setState(() {
+
+                    });
                   },
                   child: Stack(
                     children: [

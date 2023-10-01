@@ -202,7 +202,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 errorWidget: (context, url, error) =>
                                     const Icon(Icons.error),
                               );
-                            })
+                            },)
                       ],
                     ),
                   ),

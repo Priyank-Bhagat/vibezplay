@@ -3,27 +3,26 @@ import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:uuid/uuid.dart';
 import 'package:vibezplay/model/video_model.dart';
 import 'package:video_compress/video_compress.dart';
 
+import '../view/screens/home_screen.dart';
+
 class UploadVideoController extends GetxController {
-
   static UploadVideoController instance = Get.find();
-
-
 
   var uuid = const Uuid();
 
   // this function is main here we run all other functions
   uploadVideo(String songName, String caption, String videoPath) async {
-
-    try{
+    try {
       String uid = FirebaseAuth.instance.currentUser!.uid;
 
       DocumentSnapshot userDoc =
-      await FirebaseFirestore.instance.collection("users").doc(uid).get();
+          await FirebaseFirestore.instance.collection("users").doc(uid).get();
 
       String videoID = uuid.v1();
 
@@ -31,16 +30,32 @@ class UploadVideoController extends GetxController {
 
       String thumbnail = await _uploadVideoThumbtoStorage(videoID, videoPath);
 
-      VideoModel videoModel =  VideoModel(username:  (userDoc.data()! as Map<String , dynamic>)['name'], uid: uid, thumbnail: thumbnail, caption: caption, commentsCount: 0, videoID: videoID, likes: [], profilePic: (userDoc.data()! as Map<String , dynamic>)['profilePic'], shareCount: 0, songName: songName, videoUrl: videoUrl);
+      VideoModel videoModel = VideoModel(
+          username: (userDoc.data()! as Map<String, dynamic>)['name'],
+          uid: uid,
+          thumbnail: thumbnail,
+          caption: caption,
+          commentsCount: 0,
+          videoID: videoID,
+          likes: [],
+          profilePic: (userDoc.data()! as Map<String, dynamic>)['profilePic'],
+          shareCount: 0,
+          songName: songName,
+          videoUrl: videoUrl);
 
-      await FirebaseFirestore.instance.collection("videos").doc(videoID).set(videoModel.toJson());
-      Get.snackbar("Video Uploaded Successfully", "Thank You Sharing Your Content");
-      Get.back();
-    }catch (e){
-      print(e);
+      await FirebaseFirestore.instance
+          .collection("videos")
+          .doc(videoID)
+          .set(videoModel.toJson());
+      Get.snackbar(
+          "Video Uploaded Successfully", "Thank you for sharing video");
+      Get.to(const HomeScreen());
+    } catch (e) {
+      if (kDebugMode) {
+        print(e);
+      }
       rethrow;
     }
-
   }
 
   // below function used to Compress and upload video to firestorage
@@ -48,7 +63,7 @@ class UploadVideoController extends GetxController {
     print("VideoID  ------->   $videoId ,,   VideoPath -------> $videoPath");
     Reference reference =
         FirebaseStorage.instance.ref().child("videos").child(videoId);
-    UploadTask uploadTask = reference.putFile( await _compressVideo(videoPath));
+    UploadTask uploadTask = reference.putFile(await _compressVideo(videoPath));
     TaskSnapshot snapshot = await uploadTask;
     String downloadUrl = await snapshot.ref.getDownloadURL();
     return downloadUrl;

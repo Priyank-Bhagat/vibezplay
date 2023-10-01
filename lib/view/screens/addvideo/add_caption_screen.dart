@@ -36,6 +36,23 @@ class _AddCaptionScreenState extends State<AddCaptionScreen> {
     });
   }
 
+  Widget uploadContent = const Text(
+    'Upload',
+    style: TextStyle(
+      fontSize: 18,
+    ),
+  );
+
+  uploadVid() {
+    uploadContent = const Text(
+      'Uploading ..',
+      style: TextStyle(
+        fontSize: 18,
+      ),
+    );
+    setState(() {});
+  }
+
   @override
   void dispose() {
     // TODO: implement dispose
@@ -79,26 +96,24 @@ class _AddCaptionScreenState extends State<AddCaptionScreen> {
                     width: Get.width * 0.4,
                     child: ElevatedButton(
                       style: ButtonStyle(
-                          backgroundColor:
-                              MaterialStateProperty.all(Colors.red.shade500),
-                          shape:
-                              MaterialStateProperty.all<RoundedRectangleBorder>(
-                                  RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(10),
-                                      side: const BorderSide(
-                                          color: Colors.white)))),
+                        backgroundColor:
+                            MaterialStateProperty.all(Colors.red.shade500),
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            side: const BorderSide(color: Colors.white),
+                          ),
+                        ),
+                      ),
                       onPressed: () {
+                        uploadVid();
                         uploadVideoController.uploadVideo(
                             _songNameController.text,
                             _captionController.text,
                             widget.videoPath);
                       },
-                      child: const Text(
-                        'Upload',
-                        style: TextStyle(
-                          fontSize: 18,
-                        ),
-                      ),
+                      child: uploadContent,
                     ),
                   ),
                 ],
