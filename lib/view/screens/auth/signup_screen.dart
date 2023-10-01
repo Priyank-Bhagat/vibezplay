@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:vibezplay/constants.dart';
 import 'package:vibezplay/controller/auth_controller.dart';
 import 'package:vibezplay/view/screens/auth/login_screen.dart';
@@ -22,6 +25,16 @@ class _SignupScreenState extends State<SignupScreen> {
   final TextEditingController _confirmPassController = TextEditingController();
 
   final TextEditingController _setUsernameController = TextEditingController();
+
+  // this method is used to pick image from device gallery
+  File? proImg;
+  Future<void> pickImage() async {
+    final image = await ImagePicker().pickImage(source: ImageSource.gallery);
+    if (image != null) {
+      proImg = File(image.path);
+    }
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -52,17 +65,14 @@ class _SignupScreenState extends State<SignupScreen> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    AuthController.instance.pickImage();
-                    setState(() {
-
-                    });
+                    pickImage();
                   },
                   child: Stack(
                     children: [
                       CircleAvatar(
                         backgroundColor: Colors.red,
-                        backgroundImage: AuthController.instance.proImg != null
-                            ? FileImage(AuthController.instance.proImg!)
+                        backgroundImage: proImg != null
+                            ? FileImage(proImg!)
                             : const NetworkImage(
                                     'https://i.pinimg.com/736x/83/bc/8b/83bc8b88cf6bc4b4e04d153a418cde62.jpg')
                                 as ImageProvider,
@@ -136,15 +146,15 @@ class _SignupScreenState extends State<SignupScreen> {
                 Container(
                   padding:
                       const EdgeInsets.symmetric(horizontal: 50, vertical: 10),
-                  height: 73,// Get.height * 0.08,
-                  width: 260,//Get.width * 0.6,
+                  height: 73, // Get.height * 0.08,
+                  width: 260, //Get.width * 0.6,
                   child: ElevatedButton(
                     onPressed: () {
                       AuthController.instance.signUp(
                           _setUsernameController.text,
                           _emailController.text,
                           _confirmPassController.text,
-                          AuthController.instance.proImg);
+                          proImg);
                     },
                     style: ButtonStyle(
                       backgroundColor:

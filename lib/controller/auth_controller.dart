@@ -34,14 +34,6 @@ class AuthController extends GetxController {
     });
   }
 
-  // this method is used to pick image from device gallery
-  File? proImg;
-  Future<void> pickImage() async {
-    final image = await ImagePicker().pickImage(source: ImageSource.gallery);
-    if (image != null) {
-      proImg = File(image.path);
-    }
-  }
 
   // this method is used to uploadProfile pic to FireStorage
   Future<String> _uploadpropic(File image) async {
