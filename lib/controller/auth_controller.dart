@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:vibezplay/model/user_model.dart';
@@ -81,13 +82,18 @@ class AuthController extends GetxController {
             .doc(credential.user!.uid)
             .set(userModel.toJson());
       } else {
-        Get.snackbar(
-            'Error Creating Account', "Please add all required fields");
+        Get.snackbar('Error Creating Account', "Please add all required fields",
+            backgroundColor: Colors.black,
+            borderColor: Colors.white,
+            borderWidth: 02);
       }
     } catch (e) {
       if (kDebugMode) {
         print(e);
-        Get.snackbar("Error Occurred", e.toString());
+        Get.snackbar("Error Occurred", e.toString(),
+            backgroundColor: Colors.black,
+            borderColor: Colors.white,
+            borderWidth: 02);
       }
     }
   }
@@ -99,8 +105,11 @@ class AuthController extends GetxController {
         await FirebaseAuth.instance
             .signInWithEmailAndPassword(email: email, password: password);
       } else {
-        Get.snackbar('Something is missing',
-            "Make sure to fill all the required fields");
+        Get.snackbar(
+            'Something is missing', "Make sure to fill all the required fields",
+            backgroundColor: Colors.black,
+            borderColor: Colors.white,
+            borderWidth: 02);
       }
     } catch (e) {
       rethrow;

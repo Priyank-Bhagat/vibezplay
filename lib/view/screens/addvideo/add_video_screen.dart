@@ -15,7 +15,7 @@ class AddVideoScreen extends StatelessWidget {
           AddCaptionScreen(videoFile: File(video.path), videoPath: video.path));
     } else {
       Get.snackbar("Error Occurred",
-          "Error Occurred while Selecting video. Please try again");
+          "Error Occurred while Selecting video. Please try again", backgroundColor: Colors.black, borderColor: Colors.white, borderWidth: 02);
     }
   }
 
@@ -99,7 +99,7 @@ class AddVideoScreen extends StatelessWidget {
       width: Get.width * 0.6,
       child: ElevatedButton(
         onPressed: () {
-          showDialogBoxOpt();
+       showDialogBoxOpt();
         },
         style: ButtonStyle(
           backgroundColor: MaterialStateProperty.all(Colors.black12),

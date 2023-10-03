@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vibezplay/model/comment_model.dart';
 
@@ -69,10 +70,16 @@ class CommentController extends GetxController {
         });
       } else {
         Get.snackbar(
-            "Please Enter some content", "Please write something in comment");
+            "Please Enter some content", "Please write something in comment",
+            backgroundColor: Colors.black,
+            borderColor: Colors.white,
+            borderWidth: 02);
       }
     } catch (e) {
-      Get.snackbar("Error in sending comment", e.toString());
+      Get.snackbar("Error in sending comment", e.toString(),
+          backgroundColor: Colors.black,
+          borderColor: Colors.white,
+          borderWidth: 02);
     }
   }
 

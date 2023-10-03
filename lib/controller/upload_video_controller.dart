@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:uuid/uuid.dart';
 import 'package:vibezplay/model/video_model.dart';
@@ -48,7 +49,7 @@ class UploadVideoController extends GetxController {
           .doc(videoID)
           .set(videoModel.toJson());
       Get.snackbar(
-          "Video Uploaded Successfully", "Thank you for sharing video");
+          "Video Uploaded Successfully", "Thank you for sharing video", backgroundColor: Colors.black, borderColor: Colors.white, borderWidth: 02);
       Get.to(const HomeScreen());
     } catch (e) {
       if (kDebugMode) {

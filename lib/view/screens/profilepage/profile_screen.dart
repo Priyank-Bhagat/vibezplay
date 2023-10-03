@@ -40,7 +40,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             actions: [
               IconButton(
                 onPressed: () {
-                  Get.snackbar("VibezPlay", "Current Version 1.0");
+                  Get.snackbar("VibezPlay", "Current Version 1.0", backgroundColor: Colors.black, borderColor: Colors.white, borderWidth: 02);
                 },
                 icon: const Icon(Icons.info_outline_rounded),
               )
