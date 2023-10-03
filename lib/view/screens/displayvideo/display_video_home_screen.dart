@@ -5,11 +5,20 @@ import 'package:get/get.dart';
 import 'package:vibezplay/controller/video_play_controller.dart';
 import 'package:vibezplay/view/screens/comments/comments_screen.dart';
 import 'package:vibezplay/view/screens/profilepage/profile_screen.dart';
+import 'package:vibezplay/view/widgets/heart_animation.dart';
 import 'package:vibezplay/view/widgets/profile_button.dart';
 import 'package:vibezplay/view/widgets/vibezplay_player.dart';
 
-class DisplayVideoHomeScreen extends StatelessWidget {
+class DisplayVideoHomeScreen extends StatefulWidget {
   DisplayVideoHomeScreen({Key? key}) : super(key: key);
+
+  @override
+  State<DisplayVideoHomeScreen> createState() => _DisplayVideoHomeScreenState();
+}
+
+class _DisplayVideoHomeScreenState extends State<DisplayVideoHomeScreen> {
+  bool isHeartAnimating = false;
+  bool isLiked = false;
 
   final VideoPlayController videoPlayController =
       Get.put(VideoPlayController());
@@ -33,11 +42,36 @@ class DisplayVideoHomeScreen extends StatelessWidget {
             final data = videoPlayController.videoList[index];
             return InkWell(
               onDoubleTap: () {
+                isHeartAnimating = true;
                 videoPlayController.likedVideo(data.videoID);
               },
               child: Stack(
                 children: [
-                  VibezplayPlayer(videoUrl: data.videoUrl),
+                  Stack(
+                    children: [
+                      VibezplayPlayer(videoUrl: data.videoUrl),
+                      Opacity(
+                        opacity: isHeartAnimating ? 1 : 0,
+                        child: HeartAnimation(
+                          onEnd: () {
+                            setState(() {
+                              isHeartAnimating = false;
+                            });
+                          },
+                          duration: const Duration(milliseconds: 400),
+                          isAnimating: isHeartAnimating,
+                          child: Center(
+                            child: Icon(Icons.favorite,
+                                color: data.likes.contains(
+                                        FirebaseAuth.instance.currentUser!.uid)
+                                    ? Colors.red
+                                    : Colors.transparent,
+                                size: 100),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                   Container(
                     margin: const EdgeInsets.only(bottom: 10, left: 15),
                     child: Column(
@@ -92,17 +126,27 @@ class DisplayVideoHomeScreen extends StatelessWidget {
                           ),
                           InkWell(
                             onTap: () {
+                              isHeartAnimating = true;
+                              isLiked = true;
                               videoPlayController.likedVideo(data.videoID);
                             },
                             child: Column(
                               children: [
-                                Icon(
-                                  Icons.favorite_rounded,
-                                  size: 39,
-                                  color: data.likes.contains(FirebaseAuth
-                                          .instance.currentUser!.uid)
-                                      ? Colors.red
-                                      : Colors.white,
+                                HeartAnimation(
+                                   isAnimating: isLiked,
+                                  onEnd: (){
+                                     setState(() {
+                                       isLiked = false;
+                                     });
+                                  },
+                                  child: Icon(
+                                    Icons.favorite_rounded,
+                                    size: 39,
+                                    color: data.likes.contains(FirebaseAuth
+                                            .instance.currentUser!.uid)
+                                        ? Colors.red
+                                        : Colors.white,
+                                  ),
                                 ),
                                 Text(
                                   data.likes.length.toString(),
