@@ -26,13 +26,7 @@ class _SignupScreenState extends State<SignupScreen> {
 
   final TextEditingController _setUsernameController = TextEditingController();
 
-  // this method is used to pick image from device gallery
-  File? proImg;
-  Future<void> pickImage() async {
-    final image = await ImagePicker().pickImage(source: ImageSource.gallery);
-    if (image != null) {
-      proImg = File(image.path);
-    }
+  void setStateFunction() {
     setState(() {});
   }
 
@@ -65,14 +59,14 @@ class _SignupScreenState extends State<SignupScreen> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    pickImage();
+                    AuthController.instance.pickImage(setStateFunction);
                   },
                   child: Stack(
                     children: [
                       CircleAvatar(
                         backgroundColor: Colors.red,
-                        backgroundImage: proImg != null
-                            ? FileImage(proImg!)
+                        backgroundImage: AuthController.instance.proImg != null
+                            ? FileImage(AuthController.instance.proImg!)
                             : const NetworkImage(
                                     'https://i.pinimg.com/736x/83/bc/8b/83bc8b88cf6bc4b4e04d153a418cde62.jpg')
                                 as ImageProvider,
@@ -154,7 +148,7 @@ class _SignupScreenState extends State<SignupScreen> {
                           _setUsernameController.text,
                           _emailController.text,
                           _confirmPassController.text,
-                          proImg);
+                          AuthController.instance.proImg);
                     },
                     style: ButtonStyle(
                       backgroundColor:
