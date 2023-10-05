@@ -1,9 +1,10 @@
 
 <p align="center">
-    <img src="https://github.com/Priyank-Bhagat/foot_flex/assets/115228605/d84c17fd-3900-4273-95cf-34242901cf01" alt="something was here🤔">
+    <img src="https://github.com/Priyank-Bhagat/vibezplay/assets/115228605/02e98d38-f5d7-40f3-9cff-a476b86309ef" alt="something was here🤔">
 </p>
 
 # VibezPlay
+
 
 📱🎥 VibezPlay app is all about short video entertainment! You can 👀watch and share your favorite clips with friends and family. From funny moments to heartwarming stories, there's something for everyone. With easy-to-use features and a user-friendly interface📲, you can enjoy endless hours of 🎉🎊entertainment on the go. 🚶‍♂️🚶‍♀️
 
@@ -30,7 +31,7 @@ And the main thing I've implemented in this app is RazorPay to make payments and
 </p>
 
 
-
+## Download
 Just give this app a go, 
 👉[Download ](https://github.com/Priyank-Bhagat/foot_flex/blob/master/test/footflex.apk)👈The FootFlex App.
 
