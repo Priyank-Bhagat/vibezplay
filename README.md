@@ -55,7 +55,7 @@ I've also added search functionality to allow users to connect with their friend
 
 ## Download
 Just try out this app , 
-👉[Download ](https://github.com/Priyank-Bhagat/foot_flex/blob/master/test/footflex.apk)👈and keep vibing✌️ with VibezPlay.
+👉[Download ]()👈and keep vibing✌️ with VibezPlay.
 
 
 
