@@ -1,11 +1,9 @@
-import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vibezplay/components/validators.dart';
 import 'package:vibezplay/constants.dart';
 import 'package:vibezplay/controller/auth_controller.dart';
 import 'package:vibezplay/view/screens/auth/login_screen.dart';
-
 import '../../widgets/glitch_effect.dart';
 import '../../widgets/text_input.dart';
 
@@ -99,11 +97,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     margin: const EdgeInsets.symmetric(horizontal: 20),
                     child: TextInput(
                         myController: _emailController,
-                        validate: (value) {
-                          return EmailValidator.validate(value!)
-                              ? null
-                              : "Please enter a valid email";
-                        },
+                        validate: (value) => validateEmail(value),
                         myIcon: Icons.email,
                         keyboardType: TextInputType.emailAddress,
                         mylableText: "Email"),
