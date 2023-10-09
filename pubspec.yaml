@@ -41,7 +41,7 @@ dependencies:
   timeago: ^3.5.0
   cached_network_image: ^3.3.0
   flutter_share: ^2.0.0
-  email_validator: ^2.1.17
+
 
 
 dev_dependencies:
