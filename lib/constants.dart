@@ -26,3 +26,4 @@ var pageIndex = [
   const Text('Messaging feature coming soon'),
   ProfileScreen(uid: FirebaseAuth.instance.currentUser!.uid),
 ];
+
