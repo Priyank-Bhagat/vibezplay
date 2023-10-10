@@ -55,7 +55,7 @@ I've also added search functionality to allow users to connect with their friend
 
 ## Download
 Just try out this app , 
-👉[Download ]()👈and keep vibing✌️ with VibezPlay.
+👉[Download ](https://mega.nz/file/RjslyQ6Y#zFlgGpJVhp5zh8A0yvYSr_aQIY1rpTF_zWKmULN7SAc)👈and keep vibing✌️ with VibezPlay.
 
 
 
