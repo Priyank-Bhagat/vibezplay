@@ -5,7 +5,7 @@
 
 # VibezPlay
 
-
+ 
 📱🎥 VibezPlay app is all about short video entertainment! You can 👀watch and share your favorite clips with friends and family. From funny moments to heartwarming stories, there's something for everyone. With easy-to-use features and a user-friendly interface📲, you can enjoy endless hours of 🎉🎊entertainment on the go. 🚶‍♂️🚶‍♀️
 
 ## Demo
